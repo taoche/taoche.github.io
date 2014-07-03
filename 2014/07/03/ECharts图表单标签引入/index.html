@@ -3,17 +3,23 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives: 2014 | 前端小站</title>
+  <title>自定义构建ECharts单文件 | 前端小站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="blog | javascript | Backbone | node.js">
-<meta property="og:type" content="website">
-<meta property="og:title" content="前端小站">
-<meta property="og:url" content="http://yoursite.com/archives/2014/">
+  <meta name="description" content="百度前端团队维护的ECharts最近做了2.0版本的大更新，官方说对比1.X的版本性能提升了3倍。因为我正在做的项目所用的图表插件正是ECharts，
+冲着这3倍的性能优化，我也在第一时间进行了更新。
+目前做的项目，木有使用高大上的模块化加载，而且也单单只使用了图表类型中的Line(线形)图表。在把ECharts 2.0 源码Clone到本地后，第一步要做的事情就是构建一个只包含单单Line图表的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="自定义构建ECharts单文件">
+<meta property="og:url" content="http://yoursite.com/2014/07/03/ECharts图表单标签引入/">
 <meta property="og:site_name" content="前端小站">
-<meta property="og:description" content="blog | javascript | Backbone | node.js">
+<meta property="og:description" content="百度前端团队维护的ECharts最近做了2.0版本的大更新，官方说对比1.X的版本性能提升了3倍。因为我正在做的项目所用的图表插件正是ECharts，
+冲着这3倍的性能优化，我也在第一时间进行了更新。
+目前做的项目，木有使用高大上的模块化加载，而且也单单只使用了图表类型中的Line(线形)图表。在把ECharts 2.0 源码Clone到本地后，第一步要做的事情就是构建一个只包含单单Line图表的">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="前端小站">
-<meta name="twitter:description" content="blog | javascript | Backbone | node.js">
+<meta name="twitter:title" content="自定义构建ECharts单文件">
+<meta name="twitter:description" content="百度前端团队维护的ECharts最近做了2.0版本的大更新，官方说对比1.X的版本性能提升了3倍。因为我正在做的项目所用的图表插件正是ECharts，
+冲着这3倍的性能优化，我也在第一时间进行了更新。
+目前做的项目，木有使用高大上的模块化加载，而且也单单只使用了图表类型中的Line(线形)图表。在把ECharts 2.0 源码Clone到本地后，第一步要做的事情就是构建一个只包含单单Line图表的">
   
     <link rel="alternative" href="/atom.xml" title="前端小站" type="application/atom+xml">
   
@@ -58,9 +64,7 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-ECharts图表单标签引入" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-ECharts图表单标签引入" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2014/07/03/ECharts图表单标签引入/" class="article-date">
   <time datetime="2014-07-03T14:10:03.000Z" itemprop="datePublished">Jul 3 2014</time>
@@ -73,8 +77,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/07/03/ECharts图表单标签引入/">自定义构建ECharts单文件</a>
+    <h1 class="article-title" itemprop="name">
+      自定义构建ECharts单文件
     </h1>
   
 
@@ -97,109 +101,20 @@
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-Underscore" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/06/29/Underscore/" class="article-date">
-  <time datetime="2014-06-29T06:45:20.000Z" itemprop="datePublished">Jun 29 2014</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/06/29/Underscore/">Underscore 学习笔记-1</a>
-    </h1>
+    <a href="/2014/06/29/Underscore/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Underscore 学习笔记-1</div>
+    </a>
   
+</nav>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Underscore_-_集合(Collections)">Underscore - 集合(Collections)</h2>
-<p><strong> _.each </strong></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-</pre></td><td class="code"><pre>each_.each(list, iterator, [context]) 别名: forEach
-
-&lt;!-- 对一个 list 的所有元素进行迭代, 对每一个元素执行 iterator 函数. iterator 和 context 对象绑定, 如果传了这个参数. 每次
- iterator 的调用将会带有三个参数: (element, index, list). 如果 list 是一个 JavaScript 对象, iterator 的参数将会是 
- (value, key, list). 如果有原生的 forEach 函数就会用原生的代替 --&gt;
-
-<span class="comment">// 数组</span>
-<span class="keyword">var</span> songs = [<span class="string">'以父之名'</span>, <span class="string">'懦夫'</span>, <span class="string">'晴天'</span>, <span class="string">'三年二班'</span>,<span class="string">'东风破'</span>,<span class="string">'你听得到'</span>,<span class="string">'同一种调调'</span>,<span class="string">'她的睫毛'</span>,<span class="string">'爱情悬崖'</span>,<span class="string">'梯田'</span>,<span class="string">'双刀'</span>];
-
-<span class="comment">//对象</span>
-<span class="keyword">var</span> album = {title:<span class="string">'叶惠美'</span> , artist:<span class="string">'jay'</span>, releaseDate:<span class="string">'2003'</span> , location:<span class="string">'台湾'</span>};
-
-_.each(songs,<span class="function"><span class="keyword">function</span><span class="params">(song,index)</span>{</span>
-    console.log(index +<span class="string">' '</span> + song);
-});
-
-
-_.forEach(songs,<span class="function"><span class="keyword">function</span><span class="params">(song,index)</span>{</span>
-    console.log(index +<span class="string">' '</span> + song);
-});
-
-
-_.each(album,<span class="function"><span class="keyword">function</span><span class="params">(value , key)</span>{</span>
-    console.log(key + <span class="string">' '</span> + value)
-});
-
-_.forEach(album,<span class="function"><span class="keyword">function</span><span class="params">(value , key)</span>{</span>
-    console.log(key + <span class="string">' '</span> + value)
-});
-</pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/06/29/Underscore/" data-id="rpqcx6e63nvva6ak" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Underscore/">Underscore</a></li></ul>
-
-    </footer>
-  </div>
   
 </article>
 
-
-  
-  
 </section>
         
           <aside id="sidebar">
