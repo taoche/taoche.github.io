@@ -5,21 +5,18 @@
   
   <title>自定义构建ECharts单文件 | 前端小站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="百度前端团队维护的ECharts最近做了2.0版本的大更新，官方说对比1.X的版本性能提升了3倍。因为我正在做的项目所用的图表插件正是ECharts，
-冲着这3倍的性能优化，我也在第一时间进行了更新。
-目前做的项目，木有使用高大上的模块化加载，而且也单单只使用了图表类型中的Line(线形)图表。在把ECharts 2.0 源码Clone到本地后，第一步要做的事情就是构建一个只包含单单Line图表的">
+  <meta name="description" content="百度前端团队维护的ECharts最近做了2.0版本的大更新，官方说对比1.X的版本性能提升了3倍。因为我正在做的项目所用的图表插件正是ECharts，冲着这3倍的性能优化，我也在第一时间进行了更新。
+目前做的项目，木有使用高大上的模块化加载，而且也单单只使用了图表类型中的Line(线形)图表。在把ECharts 2.0 源码Clone到本地后，第一步要做的事情就是构建一个只包含单单Line图表的E">
 <meta property="og:type" content="article">
 <meta property="og:title" content="自定义构建ECharts单文件">
 <meta property="og:url" content="http://yoursite.com/2014/07/03/ECharts图表单标签引入/">
 <meta property="og:site_name" content="前端小站">
-<meta property="og:description" content="百度前端团队维护的ECharts最近做了2.0版本的大更新，官方说对比1.X的版本性能提升了3倍。因为我正在做的项目所用的图表插件正是ECharts，
-冲着这3倍的性能优化，我也在第一时间进行了更新。
-目前做的项目，木有使用高大上的模块化加载，而且也单单只使用了图表类型中的Line(线形)图表。在把ECharts 2.0 源码Clone到本地后，第一步要做的事情就是构建一个只包含单单Line图表的">
+<meta property="og:description" content="百度前端团队维护的ECharts最近做了2.0版本的大更新，官方说对比1.X的版本性能提升了3倍。因为我正在做的项目所用的图表插件正是ECharts，冲着这3倍的性能优化，我也在第一时间进行了更新。
+目前做的项目，木有使用高大上的模块化加载，而且也单单只使用了图表类型中的Line(线形)图表。在把ECharts 2.0 源码Clone到本地后，第一步要做的事情就是构建一个只包含单单Line图表的E">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="自定义构建ECharts单文件">
-<meta name="twitter:description" content="百度前端团队维护的ECharts最近做了2.0版本的大更新，官方说对比1.X的版本性能提升了3倍。因为我正在做的项目所用的图表插件正是ECharts，
-冲着这3倍的性能优化，我也在第一时间进行了更新。
-目前做的项目，木有使用高大上的模块化加载，而且也单单只使用了图表类型中的Line(线形)图表。在把ECharts 2.0 源码Clone到本地后，第一步要做的事情就是构建一个只包含单单Line图表的">
+<meta name="twitter:description" content="百度前端团队维护的ECharts最近做了2.0版本的大更新，官方说对比1.X的版本性能提升了3倍。因为我正在做的项目所用的图表插件正是ECharts，冲着这3倍的性能优化，我也在第一时间进行了更新。
+目前做的项目，木有使用高大上的模块化加载，而且也单单只使用了图表类型中的Line(线形)图表。在把ECharts 2.0 源码Clone到本地后，第一步要做的事情就是构建一个只包含单单Line图表的E">
   
     <link rel="alternative" href="/atom.xml" title="前端小站" type="application/atom+xml">
   
@@ -86,8 +83,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="百度前端团队维护的ECharts最近做了2-0版本的大更新，官方说对比1-X的版本性能提升了3倍。因为我正在做的项目所用的图表插件正是ECharts，">百度前端团队维护的ECharts最近做了2.0版本的大更新，官方说对比1.X的版本性能提升了3倍。因为我正在做的项目所用的图表插件正是ECharts，</h3>
-<p>冲着这3倍的性能优化，我也在第一时间进行了更新。</p>
+        <h3 id="百度前端团队维护的ECharts最近做了2-0版本的大更新，官方说对比1-X的版本性能提升了3倍。因为我正在做的项目所用的图表插件正是ECharts，冲着这3倍的性能优化，我也在第一时间进行了更新。">百度前端团队维护的ECharts最近做了2.0版本的大更新，官方说对比1.X的版本性能提升了3倍。因为我正在做的项目所用的图表插件正是ECharts，冲着这3倍的性能优化，我也在第一时间进行了更新。</h3>
 <h4 id="目前做的项目，木有使用高大上的模块化加载，而且也单单只使用了图表类型中的Line(线形)图表。在把ECharts_2-0_源码Clone到本地后，第一步要做的事情就是构建一个只包含单单Line图表的ECharts单文件。">目前做的项目，木有使用高大上的模块化加载，而且也单单只使用了图表类型中的Line(线形)图表。在把ECharts 2.0 源码Clone到本地后，第一步要做的事情就是构建一个只包含单单Line图表的ECharts单文件。</h4>
 <h3 id="首先看看ECharts文档">首先看看ECharts文档</h3>
 <h3 id="运行build-js只需要一个node环境，_build文件夹内已经为你准备好配置项，_可根据你的项目需求修改config-tpl-js以构建你的最佳配置，_你甚至可以在终端里通过命令行参数的方式运行_node_build-js_构建脚本">运行build.js只需要一个node环境， build文件夹内已经为你准备好配置项， 可根据你的项目需求修改config-tpl.js以构建你的最佳配置， 你甚至可以在终端里通过命令行参数的方式运行 node build.js 构建脚本</h3>
@@ -95,7 +91,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/07/03/ECharts图表单标签引入/" data-id="x8adln35mchzkykw" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/07/03/ECharts图表单标签引入/" data-id="dtlnybdn0qunorx8" class="article-share-link">Share</a>
       
       
     </footer>
