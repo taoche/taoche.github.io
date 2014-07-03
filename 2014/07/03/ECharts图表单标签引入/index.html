@@ -93,7 +93,7 @@
 </code></pre><p>这里我只需要打包Line图表，所以exclude这里的参数我需要排除掉Line之外的图表（竟然不能只打包某个图表，差评！）</p>
 <pre><code>修改代码如下   node build<span class="built_in">.</span>js optimize<span class="subst">=</span><span class="literal">true</span> exclude<span class="subst">=</span>bar，scatter，k，pie，radar，chord，force，<span class="built_in">map</span>，gauge，funnel output<span class="subst">=</span>echarts<span class="built_in">.</span>js plain<span class="subst">=</span><span class="literal">true</span>
 </code></pre><p>我们来看看运行之后的结果<br><img src="http://cdn-test.qiniudn.com/echarts.png" alt="第一次运行结果"></p>
-<p>从提示信息我们可以看到要打包文件还需要依赖一个名为zrender的文件，在ECharts官网的底部可以找到zrender的网址。<br><a href="http://ecomfe.github.io/zrender/index.html" target="_blank" rel="external">zrender</a></p>
+<p>从提示信息我们可以看到要打包文件还需要依赖一个名为zrender的文件，在ECharts官网的底部可以找到zrender的网址。</p>
 <p>进入GitHub，顺利的把源码克隆到了本地。</p>
 <p>通过查看 config-tpl.js 配置文件，找到了zrender需要放置的位置，我们修改一下路径。<br>    packages: [<br>            {<br>                name: ‘zrender’,<br>                location: ‘zrender/src’,<br>                main: ‘zrender’<br>            },<br>            {<br>                name: ‘echarts’,<br>                location: ‘.’,<br>                main: ‘echarts’<br>            }<br>        ],</p>
 <p>再次运行<br>    node build.js optimize=true exclude=bar，scatter，k，pie，radar，chord，force，map，gauge，funnel output=echarts.js plain=true</p>
@@ -105,7 +105,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/07/03/ECharts图表单标签引入/" data-id="udtagiuf7wss55zn" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/07/03/ECharts图表单标签引入/" data-id="grbo6c55cf00wyop" class="article-share-link">Share</a>
       
       
     </footer>
