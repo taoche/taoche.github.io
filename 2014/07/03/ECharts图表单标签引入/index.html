@@ -95,7 +95,33 @@
 </code></pre><p>我们来看看运行之后的结果<br><img src="http://cdn-test.qiniudn.com/echarts.png" alt="第一次运行结果"></p>
 <p>从提示信息我们可以看到要打包文件还需要依赖一个名为zrender的文件，在ECharts官网的底部可以找到zrender的网址。</p>
 <p>进入GitHub，顺利的把源码克隆到了本地。</p>
-<p>通过查看 config-tpl.js 配置文件，找到了zrender需要放置的位置，我们修改一下路径。<br>    packages: [<br>            {<br>                name: ‘zrender’,<br>                location: ‘zrender/src’,<br>                main: ‘zrender’<br>            },<br>            {<br>                name: ‘echarts’,<br>                location: ‘.’,<br>                main: ‘echarts’<br>            }<br>        ],</p>
+<p>通过查看 config-tpl.js 配置文件，找到了zrender需要放置的位置，我们修改一下路径。</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+</pre></td><td class="code"><pre>	packages: [
+	        {
+	            name: <span class="string">'zrender'</span>,
+	            location: <span class="string">'zrender/src'</span>,
+	            main: <span class="string">'zrender'</span>
+	        },
+	        {
+	            name: <span class="string">'echarts'</span>,
+	            location: <span class="string">'.'</span>,
+	            main: <span class="string">'echarts'</span>
+	        }
+	    ]
+</pre></td></tr></table></figure>
+
 <p>再次运行<br>    node build.js optimize=true exclude=bar，scatter，k，pie，radar，chord，force，map，gauge，funnel output=echarts.js plain=true</p>
 <p>再来看看结果<br><img src="http://cdn-test.qiniudn.com/echarts02.png" alt="第二次运行结果"></p>
 <p>还是保存，提示是没有找到这个文件。我们打开zrender的源码目录仔细查看，发现并没有报错信息里说到的 /shape/util/ 目录，绕了一大圈之后，<br>我终于在zrender的git上找到了dev-2.0.0分支。再次Clone到本地。</p>
@@ -105,7 +131,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/07/03/ECharts图表单标签引入/" data-id="grbo6c55cf00wyop" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/07/03/ECharts图表单标签引入/" data-id="q1160x5b1pvfkjh5" class="article-share-link">Share</a>
       
       
     </footer>
