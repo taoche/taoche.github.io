@@ -9,7 +9,7 @@
 目前做的项目，木有使用高大上的模块化加载，而且也单单只使用了图表类型中的Line(线形)图表。在把ECharts 2.0 源码Clone到本地后，第一步要做的事情就是构建一个只包含单单Line图表的E">
 <meta property="og:type" content="article">
 <meta property="og:title" content="自定义构建ECharts单文件">
-<meta property="og:url" content="http://yoursite.com/2014/07/03/echarts/">
+<meta property="og:url" content="http://yoursite.com/2014/07/03/ECharts图表单标签引入/">
 <meta property="og:site_name" content="前端小站">
 <meta property="og:description" content="百度前端团队维护的ECharts最近做了2.0版本的大更新，官方说对比1.X的版本性能提升了3倍。因为我正在做的项目所用的图表插件正是ECharts，冲着这3倍的性能优化，我也在第一时间进行了更新。
 目前做的项目，木有使用高大上的模块化加载，而且也单单只使用了图表类型中的Line(线形)图表。在把ECharts 2.0 源码Clone到本地后，第一步要做的事情就是构建一个只包含单单Line图表的E">
@@ -63,9 +63,9 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-echarts" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-ECharts图表单标签引入" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2014/07/03/echarts/" class="article-date">
+    <a href="/2014/07/03/ECharts图表单标签引入/" class="article-date">
   <time datetime="2014-07-03T14:10:03.000Z" itemprop="datePublished">Jul 3 2014</time>
 </a>
     
@@ -92,12 +92,12 @@
 <pre><code>实例代码    node build.js optimize=<span class="constant">true</span> exclude=map,force,<span class="built_in">line</span> output=echarts.js plain=<span class="constant">true</span>
 </code></pre><p>这里我只需要打包Line图表，所以exclude这里的参数我需要排除掉Line之外的图表（竟然不能只打包某个图表，差评！）</p>
 <pre><code>修改代码如下   node build<span class="built_in">.</span>js optimize<span class="subst">=</span><span class="literal">true</span> exclude<span class="subst">=</span>bar，scatter，k，pie，radar，chord，force，<span class="built_in">map</span>，gauge，funnel output<span class="subst">=</span>echarts<span class="built_in">.</span>js plain<span class="subst">=</span><span class="literal">true</span>
-</code></pre><p>我们来看看运行之后的结果<br><img src="http://cdn-test.qiniudn.com/echarts.png" alt="GitHub Octocat"></p>
+</code></pre><p>我们来看看运行之后的结果<br><img src="http://cdn-test.qiniudn.com/echarts.png" alt="第一次运行结果"></p>
 <p>从提示信息我们可以看到要打包文件还需要依赖一个名为zrender的文件，在ECharts官网的底部可以找到zrender的网址。<br><a href="http://ecomfe.github.io/zrender/index.html" target="_blank" rel="external">zrender</a></p>
 <p>进入GitHub，顺利的把源码克隆到了本地。</p>
 <p>通过查看 config-tpl.js 配置文件，找到了zrender需要放置的位置，我们修改一下路径。<br>    packages: [<br>            {<br>                name: ‘zrender’,<br>                location: ‘zrender/src’,<br>                main: ‘zrender’<br>            },<br>            {<br>                name: ‘echarts’,<br>                location: ‘.’,<br>                main: ‘echarts’<br>            }<br>        ],</p>
 <p>再次运行<br>    node build.js optimize=true exclude=bar，scatter，k，pie，radar，chord，force，map，gauge，funnel output=echarts.js plain=true</p>
-<p>再来看看结果<br><img src="http://cdn-test.qiniudn.com/echarts02.png" alt="GitHub Octocat"></p>
+<p>再来看看结果<br><img src="http://cdn-test.qiniudn.com/echarts02.png" alt="第二次运行结果"></p>
 <p>还是保存，提示是没有找到这个文件。我们打开zrender的源码目录仔细查看，发现并没有报错信息里说到的 /shape/util/ 目录，绕了一大圈之后，<br>我终于在zrender的git上找到了dev-2.0.0分支。再次Clone到本地。</p>
 <p>再次运行<br>    node build.js optimize=true exclude=bar，scatter，k，pie，radar，chord，force，map，gauge，funnel output=echarts.js plain=true</p>
 <p>这次终于没有报错，顺利得到了只包含Line图表的单文件，但是我发现新生成的文件为326KB,对比上一个版本的279KB，将近增加了50KB的体积，对于一个页面来说，50KB真的不算小了，本来就已经体积庞大的ECharts单文件现在更加庞大了。<br>可能是官方并不推荐使用单文件的载入方式吧。</p>
@@ -105,7 +105,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/07/03/echarts/" data-id="npt8zjxq0turgm61" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/07/03/ECharts图表单标签引入/" data-id="udtagiuf7wss55zn" class="article-share-link">Share</a>
       
       
     </footer>
@@ -114,19 +114,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2014/07/03/ECharts图表单标签引入/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          自定义构建ECharts单文件
-        
-      </div>
-    </a>
   
-  
-    <a href="/2014/06/29/Underscore/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2014/07/03/echarts/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Underscore 学习笔记-1</div>
+      <div class="article-nav-title">自定义构建ECharts单文件</div>
     </a>
   
 </nav>
