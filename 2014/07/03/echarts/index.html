@@ -92,20 +92,46 @@
 <pre><code>实例代码    node build.js optimize=<span class="constant">true</span> exclude=map,force,<span class="built_in">line</span> output=echarts.js plain=<span class="constant">true</span>
 </code></pre><p>这里我只需要打包Line图表，所以exclude这里的参数我需要排除掉Line之外的图表（竟然不能只打包某个图表，差评！）</p>
 <pre><code>修改代码如下   node build<span class="built_in">.</span>js optimize<span class="subst">=</span><span class="literal">true</span> exclude<span class="subst">=</span>bar，scatter，k，pie，radar，chord，force，<span class="built_in">map</span>，gauge，funnel output<span class="subst">=</span>echarts<span class="built_in">.</span>js plain<span class="subst">=</span><span class="literal">true</span>
-</code></pre><p>我们来看看运行之后的结果<br><img src="http://cdn-test.qiniudn.com/echarts.png" alt="GitHub Octocat"></p>
-<p>从提示信息我们可以看到要打包文件还需要依赖一个名为zrender的文件，在ECharts官网的底部可以找到zrender的网址。<br><a href="http://ecomfe.github.io/zrender/index.html" target="_blank" rel="external">zrender</a></p>
+</code></pre><p>我们来看看运行之后的结果<br><img src="http://cdn-test.qiniudn.com/echarts.png" alt="第一次运行结果"></p>
+<p>从提示信息我们可以看到要打包文件还需要依赖一个名为zrender的文件，在ECharts官网的底部可以找到zrender的网址。</p>
 <p>进入GitHub，顺利的把源码克隆到了本地。</p>
-<p>通过查看 config-tpl.js 配置文件，找到了zrender需要放置的位置，我们修改一下路径。<br>    packages: [<br>            {<br>                name: ‘zrender’,<br>                location: ‘zrender/src’,<br>                main: ‘zrender’<br>            },<br>            {<br>                name: ‘echarts’,<br>                location: ‘.’,<br>                main: ‘echarts’<br>            }<br>        ],</p>
+<p>通过查看 config-tpl.js 配置文件，找到了zrender需要放置的位置，我们修改一下路径。</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+</pre></td><td class="code"><pre>	packages: [
+	        {
+	            name: <span class="string">'zrender'</span>,
+	            location: <span class="string">'zrender/src'</span>,
+	            main: <span class="string">'zrender'</span>
+	        },
+	        {
+	            name: <span class="string">'echarts'</span>,
+	            location: <span class="string">'.'</span>,
+	            main: <span class="string">'echarts'</span>
+	        }
+	    ]
+</pre></td></tr></table></figure>
+
 <p>再次运行<br>    node build.js optimize=true exclude=bar，scatter，k，pie，radar，chord，force，map，gauge，funnel output=echarts.js plain=true</p>
-<p>再来看看结果<br><img src="http://cdn-test.qiniudn.com/echarts02.png" alt="GitHub Octocat"></p>
-<p>还是保存，提示是没有找到这个文件。我们打开zrender的源码目录仔细查看，发现并没有报错信息里说到的 /shape/util/ 目录，绕了一大圈之后，<br>我终于在zrender的git上找到了dev-2.0.0分支。再次Clone到本地。</p>
+<p>再来看看结果<br><img src="http://cdn-test.qiniudn.com/echarts02.png" alt="第二次运行结果"></p>
+<p>还是报错，提示是没有找到这两个文件。我们打开zrender的源码目录仔细查看，发现并没有报错信息里说到的 /shape/util/ 目录，绕了一大圈之后，我终于在zrender的git上找到了dev-2.0.0分支。再次Clone到本地。</p>
 <p>再次运行<br>    node build.js optimize=true exclude=bar，scatter，k，pie，radar，chord，force，map，gauge，funnel output=echarts.js plain=true</p>
 <p>这次终于没有报错，顺利得到了只包含Line图表的单文件，但是我发现新生成的文件为326KB,对比上一个版本的279KB，将近增加了50KB的体积，对于一个页面来说，50KB真的不算小了，本来就已经体积庞大的ECharts单文件现在更加庞大了。<br>可能是官方并不推荐使用单文件的载入方式吧。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/07/03/echarts/" data-id="ffle5qwoqvla2wgw" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/07/03/echarts/" data-id="l8pmhx57jmpzj3ia" class="article-share-link">Share</a>
       
       
     </footer>
@@ -113,15 +139,6 @@
   
     
 <nav id="article-nav">
-  
-    <a href="/2014/07/03/ECharts图表单标签引入/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          自定义构建ECharts单文件
-        
-      </div>
-    </a>
   
   
     <a href="/2014/06/29/Underscore/" id="article-nav-older" class="article-nav-link-wrap">
@@ -162,7 +179,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07">July 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06">June 2014</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07">July 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06">June 2014</a><span class="archive-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -172,10 +189,6 @@
     <h3 class="widget-title">Recents</h3>
     <div class="widget">
       <ul>
-        
-          <li>
-            <a href="/2014/07/03/ECharts图表单标签引入/">自定义构建ECharts单文件</a>
-          </li>
         
           <li>
             <a href="/2014/07/03/echarts/">自定义构建ECharts单文件</a>
