@@ -108,30 +108,34 @@
 10
 11
 12
-</pre></td><td class="code"><pre>	packages: [
-	        {
-	            name: <span class="string">'zrender'</span>,
-	            location: <span class="string">'zrender/src'</span>,
-	            main: <span class="string">'zrender'</span>
-	        },
-	        {
-	            name: <span class="string">'echarts'</span>,
-	            location: <span class="string">'.'</span>,
-	            main: <span class="string">'echarts'</span>
-	        }
-	    ]
+</pre></td><td class="code"><pre>packages: [
+        {
+            name: <span class="string">'zrender'</span>,
+            location: <span class="string">'zrender/src'</span>,
+            main: <span class="string">'zrender'</span>
+        },
+        {
+            name: <span class="string">'echarts'</span>,
+            location: <span class="string">'.'</span>,
+            main: <span class="string">'echarts'</span>
+        }
+    ]
 </pre></td></tr></table></figure>
 
-<p>再次运行<br>    node build.js optimize=true exclude=bar，scatter，k，pie，radar，chord，force，map，gauge，funnel output=echarts.js plain=true</p>
-<p>再来看看结果<br><img src="http://cdn-test.qiniudn.com/echarts02.png" alt="第二次运行结果"></p>
+<p>再次运行</p>
+<pre><code>node build<span class="built_in">.</span>js optimize<span class="subst">=</span><span class="literal">true</span> exclude<span class="subst">=</span>bar，scatter，k，pie，radar，chord，force，<span class="built_in">map</span>，gauge，funnel output<span class="subst">=</span>echarts<span class="built_in">.</span>js plain<span class="subst">=</span><span class="literal">true</span>
+</code></pre><p>再来看看结果<br><img src="http://cdn-test.qiniudn.com/echarts02.png" alt="第二次运行结果"></p>
 <p>还是报错，提示是没有找到这两个文件。我们打开zrender的源码目录仔细查看，发现并没有报错信息里说到的 /shape/util/ 目录，绕了一大圈之后，我终于在zrender的git上找到了dev-2.0.0分支。再次Clone到本地。</p>
-<p>再次运行<br>    node build.js optimize=true exclude=bar，scatter，k，pie，radar，chord，force，map，gauge，funnel output=echarts.js plain=true</p>
-<p>这次终于没有报错，顺利得到了只包含Line图表的单文件，但是我发现新生成的文件为326KB,对比上一个版本的279KB，将近增加了50KB的体积，对于一个页面来说，50KB真的不算小了，本来就已经体积庞大的ECharts单文件现在更加庞大了。<br>可能是官方并不推荐使用单文件的载入方式吧。</p>
+<p>再次运行</p>
+<pre><code>node build<span class="built_in">.</span>js optimize<span class="subst">=</span><span class="literal">true</span> exclude<span class="subst">=</span>bar，scatter，k，pie，radar，chord，force，<span class="built_in">map</span>，gauge，funnel output<span class="subst">=</span>echarts<span class="built_in">.</span>js plain<span class="subst">=</span><span class="literal">true</span>
+</code></pre><p>这次终于没有报错，顺利得到了只包含Line图表的单文件，但是我发现新生成的文件为326KB,对比上一个版本的279KB，将近增加了50KB的体积，对于一个页面来说，50KB真的不算小了，本来就已经体积庞大的ECharts单文件现在更加庞大了。</p>
+<p>可能是官方并不推荐使用单文件的载入方式吧。</p>
+<p>PS：顺便吐槽一下，百度开发的东西体验都很不好啊！</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/07/03/echarts/" data-id="l8pmhx57jmpzj3ia" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/07/03/echarts/" data-id="ldpsyxpp5xe0z2gl" class="article-share-link">Share</a>
       
       
     </footer>
